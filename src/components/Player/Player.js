@@ -1,7 +1,7 @@
 import { SpotifyBody } from './styles'
 import Sidebar from '../Sidebar/Sidebar'
 import Body from '../Body/Body'
-import { FooterContainer } from '../Footer/styles'
+import Footer from '../Footer/Footer'
 
 const Player = () => {
   return (
@@ -10,7 +10,7 @@ const Player = () => {
         <Sidebar/>
         <Body/>
     </SpotifyBody>
-    <FooterContainer/>
+    <Footer/>
     </>
   )
 }
