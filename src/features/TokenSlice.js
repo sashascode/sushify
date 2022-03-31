@@ -18,4 +18,4 @@ export const selectToken = (state) => state.token.token;
 
 
 
-export default tokenSlice;
+export default tokenSlice.reducer;

@@ -1,10 +1,12 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { userSlice } from '../features/UserSlice';
-import { tokenSlice} from '../features/TokenSlice';
+import { configureStore } from '@reduxjs/toolkit'
+import userReducer from '../features/UserSlice';
+import tokenReducer from '../features/TokenSlice';
+import playlistReducer from '../features/PlaylistSlice';
 
 export default configureStore({
     reducer: {
-        user: userSlice.reducer,
-        token: tokenSlice.reducer,
+        user: userReducer,
+        token: tokenReducer,
+        playlist: playlistReducer
     }
 })
