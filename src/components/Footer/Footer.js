@@ -16,11 +16,11 @@ const Footer = () => {
       </div>
       </FooterLeft>
       <FooterCenter>
-        <TiArrowShuffle/>
-        <BsFillSkipStartFill/>
-        <span><BsPlayCircleFill/></span>
-        <BsFillSkipEndFill/>
-        <BiRepeat/>
+        <TiArrowShuffle className='shuffle'/>
+        <BsFillSkipStartFill className='icon'/>
+        <span><BsPlayCircleFill className='icon'/></span>
+        <BsFillSkipEndFill className='icon'/>
+        <BiRepeat className='repeat'/>
       </FooterCenter>
       <FooterRight>
         <RiPlayListFill/>

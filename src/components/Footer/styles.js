@@ -30,20 +30,18 @@ export const FooterLeft = styled.div`
 `
 
 export const FooterCenter = styled.div`
-flex: 0.4;
-display: flex;
-align-items: center;
-gap: 20px;
-max-width: 300px;
-font-size: 25px;
-color: #BFC0C0;
-&:hover {
-  color: #fff;
-}
-& span {
-  font-size: 35px;
-  color: #fff;
-}
+  flex: 0.4;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 300px;
+  font-size: 25px;
+  color: #BFC0C0;
+ 
+  & span {
+    font-size: 35px;
+    color: #fff;
+  }
   
 `
 

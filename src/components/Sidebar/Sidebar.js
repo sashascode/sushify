@@ -5,7 +5,6 @@ import { BiLibrary } from 'react-icons/bi'
 import { AiFillPlusSquare } from 'react-icons/ai'
 import SidebarChoice from './SidebarChoice'
 
-
 const Sidebar = () => {
   return (
     <SidebarContainer>
