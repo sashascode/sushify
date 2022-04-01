@@ -5,7 +5,7 @@ import { Input } from "./styles";
 const Volume = () => {
     const [volume, setVolume] = useState(1);
     const [muted, setMuted] = useState(false);
-    const finalVolume = muted ? 0 : volume ** 2;
+    // const finalVolume = muted ? 0 : volume ** 2;
 
   return (
     <>

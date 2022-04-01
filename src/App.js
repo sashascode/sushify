@@ -6,19 +6,21 @@ import Player from './components/Player/Player';
 import { getTokenFromURL } from './spotifyLogic';
 import { selectUser, SET_USER } from './features/UserSlice'
 import SpotifyWebApi from 'spotify-web-api-js';
-import { SET_TOKEN } from './features/TokenSlice';
+import { selectToken, SET_TOKEN } from './features/TokenSlice';
 import { SET_PLAYLIST } from './features/PlaylistSlice';
 
 
 const spotify = new SpotifyWebApi();
 
 function App() {
+  const token = useSelector(selectToken);
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
     const hash = getTokenFromURL();
-    const _token = hash.access_token;
+    window.location.hash = "";
+    const _token = token ? token : hash.access_token;
 
     if(_token){
       dispatch(SET_TOKEN(_token));
