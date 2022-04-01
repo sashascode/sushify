@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const BodyContainer = styled.div`
-    flex: 0.8;
+    flex: 0.9;
     background: linear-gradient(#121212,#000 100%);
     height: 100vh;
     padding: 30px;

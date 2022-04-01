@@ -2,10 +2,16 @@ import {FooterContainer, FooterLeft, FooterCenter, FooterRight } from './styles'
 import {TiArrowShuffle} from 'react-icons/ti'
 import {BiRepeat} from 'react-icons/bi'
 import {RiPlayListFill} from 'react-icons/ri'
-import {BsFillSkipStartFill, BsFillSkipEndFill, BsPlayCircleFill} from 'react-icons/bs'
+import {BsFillSkipStartFill, BsFillSkipEndFill, BsPlayCircleFill, BsPauseCircleFill} from 'react-icons/bs'
 import Volume from './Volume'
+import { useState } from 'react'
 
 const Footer = () => {
+  const [isShuffleActive, setIsShuffleActive] = useState(false);
+  const [isRepeatActive, setIsRepeatActive] = useState(false);
+  const [isPlayActive, setIsPlayActive] = useState(false);
+  const [isPlaylistActive, setIsPlaylistActive] = useState(false);
+
   return (
     <FooterContainer> 
       <FooterLeft>
@@ -16,14 +22,14 @@ const Footer = () => {
       </div>
       </FooterLeft>
       <FooterCenter>
-        <TiArrowShuffle className='shuffle'/>
+        <TiArrowShuffle className={isShuffleActive ? 'shuffle-active' : 'shuffle'} onClick={() => setIsShuffleActive(!isShuffleActive)}/>
         <BsFillSkipStartFill className='icon'/>
-        <span><BsPlayCircleFill className='icon'/></span>
+        <span className='play' onClick={() => setIsPlayActive(!isPlayActive)}>{ isPlayActive ? <BsPauseCircleFill/> : <BsPlayCircleFill/>}</span>
         <BsFillSkipEndFill className='icon'/>
-        <BiRepeat className='repeat'/>
+        <BiRepeat className={isRepeatActive ? 'repeat-active' : 'repeat'} onClick={() => setIsRepeatActive(!isRepeatActive)}/>
       </FooterCenter>
       <FooterRight>
-        <RiPlayListFill/>
+        <RiPlayListFill className={isPlaylistActive ? 'playlist-active' : 'playlist'} onClick={() => setIsPlaylistActive(!isPlaylistActive)}/>
         <Volume/>
       </FooterRight>
     </FooterContainer>

@@ -2,3 +2,20 @@ h6 {
     font-size: 13px;
     font-weight: 400;
 }
+
+.shuffle:hover, .repeat:hover, .icon:hover, .playlist:hover {
+    color: #fff;
+}
+
+.play {
+    transition: transform 200ms ease-in-out !important;
+}
+
+.play:hover {
+    transform: scale(1.1) !important;
+}
+
+.shuffle-active, .repeat-active, .playlist-active {
+    color: #1db954;
+}
+
