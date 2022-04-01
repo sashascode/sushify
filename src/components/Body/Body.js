@@ -1,11 +1,15 @@
-import { BodyContainer, Info, InfoText, Songs } from './styles'
-import { Header } from './Header'
+import { BodyContainer, Info, InfoText, Songs, StartPlaylist } from './styles'
+import { Header } from './Header';
 import { selectPlaylist } from '../../features/PlaylistSlice';
 import { useSelector } from 'react-redux';
-import SongRow from './SongRow'
+import SongRow from './SongRow';
+import { BsPlayCircleFill, BsPauseCircleFill } from 'react-icons/bs';
+import {IoIosMore} from 'react-icons/io';
+import { useState } from 'react';
 
 const Body = () => {
   const playlist = useSelector(selectPlaylist);
+  const [playActive, setPlayActive] = useState(false);
 
   return (
     <BodyContainer>
@@ -16,9 +20,13 @@ const Body = () => {
           <h6>PLAYLIST</h6>
           <h1>{playlist?.name}</h1>
           <p>{playlist?.description}</p>
-          <p>{playlist?.owner.display_name} &#8226; {playlist?.followers.total} me gusta &#8226; {playlist?.tracks.total} canciones </p>
+          <span>{playlist?.owner.display_name} &#8226; {playlist?.followers.total} me gusta &#8226; {playlist?.tracks.total} canciones </span>
         </InfoText>
       </Info>
+
+      <StartPlaylist onClick={() => setPlayActive(!playActive)}>
+        {playActive ? <BsPauseCircleFill/> : <BsPlayCircleFill/>}
+      </StartPlaylist>
 
       <Songs>
         

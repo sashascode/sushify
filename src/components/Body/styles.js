@@ -17,8 +17,10 @@ export const HeaderContainer = styled.div`
 `
 export const HeaderLeft = styled.div`
     display: flex;
+    gap: 10px;
     align-items: center;
     flex: 0.5;
+    max-width: 300px;
     min-width: 75px;
     background-color: #fff;
     color: #181818;
@@ -60,12 +62,33 @@ export const Info = styled.div`
     align-items: flex-end;
     padding: 10px;
     color: #fff;
+    margin-bottom: 50px;
     & img {
         object-fit: cover;
         width: 12vw;
         height: 12vw;
         margin: 0 20px;
         box-shadow: 0 4px 5px #000;
+    }
+
+    & h1 {
+        font-size: 80px;
+    }
+
+    & h6 {
+        font-weight: bold;
+    }
+
+    & p {
+        font-size: 14px;
+        margin-top: 5px;
+        color: #BFC0C0;
+    }
+
+    & span {
+        color: #fff;
+        font-size: 14px;
+        margin-top: 5px;
     }
 `
 
@@ -115,5 +138,15 @@ export const SongRowContainer = styled.div`
 `
 
 export const SongInfo = styled.div`
+
+`
+export const StartPlaylist = styled.div`
+    display: flex;
+    gap: 10px;
+    align-items:center;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    color: #1db954;
+    font-size: 55px;
 
 `

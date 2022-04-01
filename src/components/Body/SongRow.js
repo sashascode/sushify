@@ -16,10 +16,10 @@ const SongRow = ({track}) => {
           }
         </p>
       </SongInfo>
-      <Icons>
+      {/* <Icons>
           <FaHeart/>
           <IoIosMore/>
-      </Icons>
+      </Icons> */}
     </SongRowContainer>
   )
 }
