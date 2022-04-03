@@ -19,3 +19,11 @@ h6 {
     color: #1db954;
 }
 
+.show {
+    visibility: visible
+}
+
+.hidden {
+    visibility: hidden;
+}
+

@@ -4,7 +4,7 @@ import './App.css';
 import Login from './components/Login/Login'
 import Player from './components/Player/Player';
 import { getTokenFromURL } from './spotifyLogic';
-import { selectUser, SET_USER } from './features/UserSlice'
+import { SET_USER } from './features/UserSlice'
 import SpotifyWebApi from 'spotify-web-api-js';
 import { selectToken, SET_TOKEN } from './features/TokenSlice';
 import { SET_PLAYLIST } from './features/PlaylistSlice';
@@ -14,7 +14,6 @@ const spotify = new SpotifyWebApi();
 
 function App() {
   const token = useSelector(selectToken);
-  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -28,12 +27,17 @@ function App() {
       spotify.getMe().then(user => dispatch(SET_USER(user)));
       spotify.getPlaylist('7sEvpJXGCeofCh4O5i2vf9').then(playlist => dispatch(SET_PLAYLIST(playlist)))
     }
+
+    setTimeout(() => {
+      dispatch(SET_TOKEN(null));
+      localStorage.removeItem("token");
+    }, 3600000)
     
-  }, [dispatch])
+  }, [dispatch, token])
 
   return (
     <div>
-      { user ? <Player/> : <Login/> }
+      { token ? <Player/> : <Login/> }
     </div>
   );
 }

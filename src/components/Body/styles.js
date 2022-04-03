@@ -13,7 +13,6 @@ export const BodyContainer = styled.div`
 export const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    margin-bottom: 35px;
 `
 export const HeaderLeft = styled.div`
     display: flex;
@@ -22,6 +21,7 @@ export const HeaderLeft = styled.div`
     flex: 0.5;
     max-width: 300px;
     min-width: 75px;
+    height: 15px;
     background-color: #fff;
     color: #181818;
     border-radius: 30px;
@@ -37,24 +37,61 @@ export const HeaderRight = styled.div`
     display: flex;
     align-items: center;
     margin-right: 25px;
+    &:last-child {
+        flex-direction: column;
+    }
+
     & h5 {
         color: #fff;
     }
 
     & img {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
+        margin-left: 5px;
     }
 
     & div {
         display: flex;
         align-items: center;
-        background-color: #000;
-        padding: 10px;
+        background: rgba(0,0,0,0.5);
         gap: 10px;
+        border-radius: 30px;
+        width: 170px;
+        height: 40px;
+        justify-content: left;
+        cursor: pointer;
     }
 
+    & ul {
+        margin-top: 5px;
+        background: rgba(0,0,0,0.5);
+        width: 170px;
+        height: 40px;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: #141515;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        & li {
+            list-style: none;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        & button {
+            margin-left: -80px;
+            line-height: 35px;
+            text-decoration: none;
+            border: none;
+            background-color: transparent;
+            color: #fff;
+        }
+    }
 `
 
 export const Info = styled.div`
