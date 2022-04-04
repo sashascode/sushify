@@ -70,6 +70,7 @@ export const HeaderRight = styled.div`
         width: 170px;
         height: 40px;
         border-radius: 5px;
+        cursor: pointer;
 
         &:hover {
             background-color: #141515;
@@ -90,6 +91,7 @@ export const HeaderRight = styled.div`
             border: none;
             background-color: transparent;
             color: #fff;
+            cursor: pointer;
         }
     }
 `

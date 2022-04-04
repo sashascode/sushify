@@ -5,12 +5,16 @@ import Login from './components/Login/Login'
 import Player from './components/Player/Player';
 import { getTokenFromURL } from './spotifyLogic';
 import { SET_USER } from './features/UserSlice'
-import SpotifyWebApi from 'spotify-web-api-js';
+import SpotifyWebApi from 'spotify-web-api-node';
 import { selectToken, SET_TOKEN } from './features/TokenSlice';
 import { SET_PLAYLIST } from './features/PlaylistSlice';
+import { selectSearch, selectSearchResults, SET_SEARCH_RESULTS } from './features/SearchSlice';
 
 
-const spotify = new SpotifyWebApi();
+const spotifyApi = new SpotifyWebApi({
+  clientId: '791d855bdf4e4930a3584a4443cbe6f4',
+
+});
 
 function App() {
   const token = useSelector(selectToken);
@@ -23,9 +27,9 @@ function App() {
 
     if(_token){
       dispatch(SET_TOKEN(_token));
-      spotify.setAccessToken(_token);
-      spotify.getMe().then(user => dispatch(SET_USER(user)));
-      spotify.getPlaylist('7sEvpJXGCeofCh4O5i2vf9').then(playlist => dispatch(SET_PLAYLIST(playlist)))
+      spotifyApi.setAccessToken(_token);
+      spotifyApi.getMe().then(user => dispatch(SET_USER(user.body)));
+      spotifyApi.getPlaylist('7sEvpJXGCeofCh4O5i2vf9').then(playlist => dispatch(SET_PLAYLIST(playlist.body)))
     }
 
     setTimeout(() => {
@@ -33,7 +37,8 @@ function App() {
       localStorage.removeItem("token");
     }, 3600000)
     
-  }, [dispatch, token])
+  }, [dispatch, token]);
+
 
   return (
     <div>

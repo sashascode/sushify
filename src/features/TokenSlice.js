@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const tokenSlice = createSlice({
     name: "token",
     initialState: {
-        token: localStorage.getItem("token") 
+        token: 
+        localStorage.getItem("token") 
         ? JSON.parse(localStorage.getItem("token")) 
         : null,
     },
