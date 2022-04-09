@@ -1,7 +1,7 @@
-import { SongRowContainer, SongInfo, Icons } from "./styles"
+import { SongRowContainer, SongInfo } from "./styles"
 import {BsPlayFill} from 'react-icons/bs'
-import {FaHeart} from 'react-icons/fa'
-import {IoIosMore} from 'react-icons/io'
+// import {FaHeart} from 'react-icons/fa'
+// import {IoIosMore} from 'react-icons/io'
 
 const SongRow = ({track}) => {
   return (

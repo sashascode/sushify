@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { HeaderContainer, HeaderLeft, HeaderRight } from "./styles"
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { RiSearchLine } from 'react-icons/ri'
@@ -5,7 +6,8 @@ import { useSelector, useDispatch } from "react-redux"
 import { selectUser, SET_USER } from "../../features/UserSlice"
 import { SET_TOKEN } from "../../features/TokenSlice"
 import { selectSearch, SET_SEARCH } from "../../features/SearchSlice"
-import { useState } from "react"
+
+
 
 export const Header = () => {
   const user = useSelector(selectUser);

@@ -4,7 +4,6 @@ import { selectPlaylist } from '../../features/PlaylistSlice';
 import { useSelector } from 'react-redux';
 import SongRow from './SongRow';
 import { BsPlayCircleFill, BsPauseCircleFill } from 'react-icons/bs';
-import {IoIosMore} from 'react-icons/io';
 import { useState } from 'react';
 
 const Body = () => {

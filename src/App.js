@@ -8,7 +8,8 @@ import { SET_USER } from './features/UserSlice'
 import SpotifyWebApi from 'spotify-web-api-node';
 import { selectToken, SET_TOKEN } from './features/TokenSlice';
 import { SET_PLAYLIST } from './features/PlaylistSlice';
-import { selectSearch, selectSearchResults, SET_SEARCH_RESULTS } from './features/SearchSlice';
+import { selectSearch } from "./features/SearchSlice";
+import { SET_SEARCH_RES } from "./features/SearchResSlice";
 
 
 const spotifyApi = new SpotifyWebApi({
@@ -19,6 +20,7 @@ const spotifyApi = new SpotifyWebApi({
 function App() {
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
+  const search = useSelector(selectSearch);
 
   useEffect(() => {
     const hash = getTokenFromURL();
@@ -38,6 +40,19 @@ function App() {
     }, 3600000)
     
   }, [dispatch, token]);
+
+  useEffect(() => {
+    let cancel = false;
+    if(!search) dispatch(SET_SEARCH_RES([]));
+    if(search && !cancel){
+      spotifyApi.searchTracks(search).then(res => {
+        dispatch(SET_SEARCH_RES(res.body.tracks.items));
+        console.log(res);
+      });
+    };
+
+    return () => cancel = true;
+  }, [token, search, dispatch])
 
 
   return (

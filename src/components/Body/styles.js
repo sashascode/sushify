@@ -156,6 +156,7 @@ export const SongRowContainer = styled.div`
     &:hover {
         cursor: pointer;
         background-color: #000000;
+        border-radius: 5px;
         opacity: 0.5;
     }
     
