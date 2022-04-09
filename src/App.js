@@ -11,8 +11,7 @@ import { SET_PLAYLIST } from './features/PlaylistSlice';
 import { selectSearch } from "./features/SearchSlice";
 import { SET_SEARCH_RES } from "./features/SearchResSlice";
 
-
-const spotifyApi = new SpotifyWebApi({
+export const spotifyApi = new SpotifyWebApi({
   clientId: '791d855bdf4e4930a3584a4443cbe6f4',
 
 });
@@ -52,8 +51,7 @@ function App() {
     };
 
     return () => cancel = true;
-  }, [token, search, dispatch])
-
+  }, [token, search, dispatch]);
 
   return (
     <div>
