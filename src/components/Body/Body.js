@@ -11,7 +11,7 @@ const Body = () => {
   const [playActive, setPlayActive] = useState(false);
 
   return (
-    <BodyContainer>
+    <BodyContainer id='style-4'>
       <Header/>
       <Info>
         <img src={playlist?.images[0]?.url} alt={playlist?.name} />
@@ -31,7 +31,7 @@ const Body = () => {
         
         {
           playlist?.tracks?.items?.map((song) => {
-            return <SongRow track={song.track} key={song.track.id}/> 
+            return <SongRow track={song?.track} key={song?.track?.id}/> 
           })
         }
       </Songs>

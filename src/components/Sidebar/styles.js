@@ -20,6 +20,11 @@ const SidebarContainer = styled.div`
     }
 `
 
+const PlaylistsContainer = styled.div`
+    height: 75vh;
+    overflow-y: scroll;
+`
+
 const Choices = styled.div`
     display: flex;
     align-items: center;
@@ -37,4 +42,4 @@ const Choices = styled.div`
     }
 `
 
-export { SidebarContainer, Choices };
+export { SidebarContainer, Choices, PlaylistsContainer };

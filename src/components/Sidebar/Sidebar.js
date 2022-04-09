@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { SidebarContainer } from './styles'
+import { SidebarContainer, PlaylistsContainer } from './styles'
 import { MdHomeFilled } from 'react-icons/md'
 import { RiSearchLine } from 'react-icons/ri'
 import { BiLibrary } from 'react-icons/bi'
@@ -8,14 +8,12 @@ import SidebarChoice from './SidebarChoice'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectPlaylists, SET_PLAYLISTS } from '../../features/PlaylistsSlice'
 import { selectUser } from '../../features/UserSlice'
-import { spotifyApi } from '../../App'
+import { spotifyApi } from '../../spotifyLogic'
 
 const Sidebar = () => {
   const dispatch = useDispatch();
   const playlists = useSelector(selectPlaylists);
   const user = useSelector(selectUser);
-  console.log(user)
-  console.log(playlists)
 
   useEffect(() => {
     spotifyApi.getUserPlaylists(user?.id)
@@ -31,11 +29,11 @@ const Sidebar = () => {
       <br/>
       <SidebarChoice title='Create Playlist' Icon={AiFillPlusSquare}/>
       <hr/>
-      { playlists.map(playlist => {
-        return <SidebarChoice key={playlist.id} title={playlist?.name}/>
-      }) 
-      } 
-      
+      <PlaylistsContainer id='style-4'>
+        { 
+          playlists.map(playlist => <SidebarChoice key={playlist?.id} title={playlist?.name} id={playlist?.id}/>) 
+        } 
+      </PlaylistsContainer>
     </SidebarContainer>
 
   )

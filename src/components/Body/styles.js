@@ -6,9 +6,7 @@ export const BodyContainer = styled.div`
     height: 100vh;
     padding: 30px;
     overflow-y: overlay;
-    &::-webkit-scrollbar{
-        display: none;
-    }
+
 `
 export const HeaderContainer = styled.div`
     display: flex;

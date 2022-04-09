@@ -1,3 +1,23 @@
+#style-4::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: transparent;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #BFC0C0;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
 h6 {
     font-size: 13px;
     font-weight: 400;

@@ -1,12 +1,4 @@
-
-export const getTokenFromURL = () => {
-    return window.location.hash.substring(1).split("&")
-    .reduce((initial, item) => {
-        let parts = item.split("=");
-        initial[parts[0]] = decodeURIComponent(parts[1]);
-        return initial;
-    }, {})
-}
+import SpotifyWebApi from 'spotify-web-api-node';
 
 const endpoint = 'https://accounts.spotify.com/authorize';
 const clientID = '791d855bdf4e4930a3584a4443cbe6f4';
@@ -24,4 +16,21 @@ const scopes = [
   "user-library-modify",
 ];
 
+export const spotifyApi = new SpotifyWebApi({
+  clientId: clientID,
+});
+
+//Login
+export const getTokenFromURL = () => {
+    return window.location.hash.substring(1).split("&")
+    .reduce((initial, item) => {
+        let parts = item.split("=");
+        initial[parts[0]] = decodeURIComponent(parts[1]);
+        return initial;
+    }, {})
+}
+
 export const loginURL = `${endpoint}?client_id=${clientID}&response_type=token&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&show_dialog=true`;
+
+//Api Request
+
