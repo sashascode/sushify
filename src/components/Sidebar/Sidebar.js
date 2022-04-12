@@ -29,7 +29,7 @@ const Sidebar = () => {
       <br/>
       <SidebarChoice title='Create Playlist' Icon={AiFillPlusSquare}/>
       <hr/>
-      <PlaylistsContainer id='style-4'>
+      <PlaylistsContainer id='scrollbar'>
         { 
           playlists.map(playlist => <SidebarChoice key={playlist?.id} title={playlist?.name} id={playlist?.id}/>) 
         } 

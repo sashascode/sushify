@@ -19,6 +19,7 @@ function App() {
     const hash = getTokenFromURL();
     window.location.hash = "";
     const _token = token ? token : hash.access_token;
+    console.log(hash);
 
     if(_token){
       dispatch(SET_TOKEN(_token));

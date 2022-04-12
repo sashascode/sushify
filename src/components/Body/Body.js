@@ -11,7 +11,7 @@ const Body = () => {
   const [playActive, setPlayActive] = useState(false);
 
   return (
-    <BodyContainer id='style-4'>
+    <BodyContainer id='scrollbar'>
       <Header/>
       <Info>
         <img src={playlist?.images[0]?.url} alt={playlist?.name} />
