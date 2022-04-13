@@ -4,6 +4,9 @@ import {BsPlayFill} from 'react-icons/bs'
 // import {IoIosMore} from 'react-icons/io'
 
 const SongRow = ({track}) => {
+
+  if(!track?.track) return null;
+
   return (
     <SongRowContainer>
       <BsPlayFill/>

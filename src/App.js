@@ -1,38 +1,29 @@
 import './App.css';
+import Login from './components/Login/Login'
+import Player from './components/Player/Player';
 import { spotifyApi } from './spotifyLogic';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Login from './components/Login/Login'
-import Player from './components/Player/Player';
-import { getTokenFromURL } from './spotifyLogic';
 import { SET_USER } from './features/UserSlice'
 import { selectToken, SET_TOKEN } from './features/TokenSlice';
 import { selectSearch } from "./features/SearchSlice";
 import { SET_SEARCH_RES } from "./features/SearchResSlice";
+import useAuth from './useAuth' 
 
 function App() {
   const token = useSelector(selectToken);
   const dispatch = useDispatch();
   const search = useSelector(selectSearch);
+  const code = new URLSearchParams(window.location.search).get('code');
+  const accesToken = useAuth(code);
 
   useEffect(() => {
-    const hash = getTokenFromURL();
-    window.location.hash = "";
-    const _token = token ? token : hash.access_token;
-    console.log(hash);
-
-    if(_token){
-      dispatch(SET_TOKEN(_token));
-      spotifyApi.setAccessToken(_token);
+    if(accesToken){
+      dispatch(SET_TOKEN(accesToken));
+      spotifyApi.setAccessToken(accesToken);
       spotifyApi.getMe().then(user => dispatch(SET_USER(user.body)));
     }
-
-    setTimeout(() => {
-      dispatch(SET_TOKEN(null));
-      localStorage.removeItem("token");
-    }, 3600000)
-    
-  }, [dispatch, token]);
+  }, [accesToken, dispatch])
 
   useEffect(() => {
     let cancel = false;
@@ -40,12 +31,11 @@ function App() {
     if(search && !cancel){
       spotifyApi.searchTracks(search).then(res => {
         dispatch(SET_SEARCH_RES(res.body.tracks.items));
-        console.log(res);
       });
     };
 
     return () => cancel = true;
-  }, [token, search, dispatch]);
+  }, [search, dispatch]);
 
   return (
     <div>
