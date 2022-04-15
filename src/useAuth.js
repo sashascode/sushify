@@ -17,7 +17,6 @@ export default function useAuth(code) {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
         setExpiresIn(res.data.expiresIn);
-        setLocalStorage('accesToken', accessToken);
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
@@ -47,6 +46,8 @@ export default function useAuth(code) {
     }
     
   }, [refreshToken, expiresIn]);
+
+  setLocalStorage('accesToken', accessToken)
 
   return accessToken;
 }
