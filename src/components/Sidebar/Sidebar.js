@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { selectPlaylists, SET_PLAYLISTS } from '../../features/PlaylistsSlice'
 import { selectUser } from '../../features/UserSlice'
 import { spotifyApi } from '../../spotifyLogic'
+import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,13 @@ const Sidebar = () => {
       <hr/>
       <PlaylistsContainer id='scrollbar'>
         { 
-          playlists.map(playlist => <SidebarChoice key={playlist?.id} title={playlist?.name} id={playlist?.id}/>) 
+          playlists.map(playlist => {
+            return(
+              <Link to={`/playlist/${playlist.id}`}>
+                <SidebarChoice key={playlist?.id} title={playlist?.name}/>
+              </Link>
+            )
+          }) 
         } 
       </PlaylistsContainer>
     </SidebarContainer>
@@ -40,3 +47,6 @@ const Sidebar = () => {
 }
 
 export default Sidebar
+
+
+

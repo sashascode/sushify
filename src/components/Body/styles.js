@@ -105,7 +105,6 @@ export const Info = styled.div`
         width: 12vw;
         height: 12vw;
         margin: 0 20px;
-        box-shadow: 0 4px 5px #000;
     }
 
     & h1 {
@@ -183,6 +182,8 @@ export const SongInfo = styled.div`
 
 export const SongInfoII = styled.div`
     display: flex;
+    
+
     
 `
 

@@ -1,4 +1,5 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './components/Login/Login'
 import Player from './components/Player/Player';
 import { spotifyApi } from './spotifyLogic';
@@ -36,10 +37,19 @@ function App() {
 
     return () => cancel = true;
   }, [search, dispatch]);
-
+  
   return (
     <div>
-      { token ? <Player/> : <Login/> }
+      <BrowserRouter>
+        { token ? 
+          <Player/>
+          : 
+          <Login/>
+        }
+        <Routes>
+          <Route path='/playlist/:playlistId' element={<Player/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

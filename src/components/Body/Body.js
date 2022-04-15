@@ -5,11 +5,22 @@ import { useSelector } from 'react-redux';
 import SongRow from './SongRow';
 import { BsPlayCircleFill, BsPauseCircleFill } from 'react-icons/bs';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { spotifyApi } from '../../spotifyLogic';
+import { useDispatch } from 'react-redux';
+import { SET_PLAYLIST } from '../../features/PlaylistSlice';
 
 const Body = () => {
   const playlist = useSelector(selectPlaylist);
   const [playActive, setPlayActive] = useState(false);
+  const {playlistId} = useParams();
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    spotifyApi.getPlaylist(playlistId).then(playlist => dispatch(SET_PLAYLIST(playlist.body)))
+  }, [playlistId]);
+  
   return (
     <BodyContainer id='scrollbar'>
 
