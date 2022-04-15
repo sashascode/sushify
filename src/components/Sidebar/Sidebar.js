@@ -34,8 +34,8 @@ const Sidebar = () => {
         { 
           playlists.map(playlist => {
             return(
-              <Link to={`/playlist/${playlist.id}`}>
-                <SidebarChoice key={playlist?.id} title={playlist?.name}/>
+              <Link to={`/playlist/${playlist.id}`} key={playlist?.id}>
+                <SidebarChoice title={playlist?.name}/>
               </Link>
             )
           }) 

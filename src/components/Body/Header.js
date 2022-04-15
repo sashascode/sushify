@@ -5,7 +5,6 @@ import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { RiSearchLine } from 'react-icons/ri'
 import { useSelector, useDispatch } from "react-redux"
 import { selectUser, SET_USER } from "../../features/UserSlice"
-import { SET_TOKEN } from "../../features/TokenSlice"
 import { selectSearch, SET_SEARCH } from "../../features/SearchSlice"
 import { SET_SEARCH_RES } from "../../features/SearchResSlice"
 
@@ -20,9 +19,9 @@ export const Header = () => {
   };
 
   const handleLogout = () => {
+    localStorage.removeItem("accesToken");
+    window.location = "/";
     dispatch(SET_USER(null));
-    dispatch(SET_TOKEN(null));
-    localStorage.removeItem("token");
   };
 
   useEffect(() => {

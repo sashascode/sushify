@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import useLocalStorage from "./useLocalStorage";
+import axios from "axios";
 
 export default function useAuth(code) {
-  const [accessToken, setAccessToken] = useState()
-  const [refreshToken, setRefreshToken] = useState()
-  const [expiresIn, setExpiresIn] = useState()
+  const [inLocalStorage, setLocalStorage] = useLocalStorage();
+  const [accessToken, setAccessToken] = useState(inLocalStorage('accesToken'));
+  const [refreshToken, setRefreshToken] = useState();
+  const [expiresIn, setExpiresIn] = useState();
 
   useEffect(() => {
     axios
@@ -12,16 +14,17 @@ export default function useAuth(code) {
         code,
       })
       .then(res => {
-        setAccessToken(res.data.accessToken)
-        setRefreshToken(res.data.refreshToken)
-        setExpiresIn(res.data.expiresIn)
-        window.history.pushState({}, null, "/")
+        setAccessToken(res.data.accessToken);
+        setRefreshToken(res.data.refreshToken);
+        setExpiresIn(res.data.expiresIn);
+        setLocalStorage('accesToken', accessToken);
+        window.history.pushState({}, null, "/");
       })
       .catch((err) => {
-        // window.location = "/"
+        window.location = "/"
         console.log(err);
-      })
-  }, [code])
+      });
+  }, [code, accessToken, setLocalStorage]);
 
   useEffect(() => {
     if (refreshToken){
@@ -31,19 +34,19 @@ export default function useAuth(code) {
             refreshToken
           })
           .then(res => {
-            setAccessToken(res.data.accessToken)
-            setExpiresIn(res.data.expiresIn)
+            setAccessToken(res.data.accessToken);
+            setExpiresIn(res.data.expiresIn);
           })
           .catch((err) => {
-            window.location = "/"
+            window.location = "/";
             console.log(err);
-          })
-      }, (expiresIn - 60) * 1000)
+          });
+      }, (expiresIn - 60) * 1000);
 
       return() => clearInterval(interval);
     }
     
-  }, [refreshToken, expiresIn])
+  }, [refreshToken, expiresIn]);
 
-  return accessToken
+  return accessToken;
 }

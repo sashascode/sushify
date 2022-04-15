@@ -19,7 +19,7 @@ const Body = () => {
 
   useEffect(() => {
     spotifyApi.getPlaylist(playlistId).then(playlist => dispatch(SET_PLAYLIST(playlist.body)))
-  }, [playlistId]);
+  }, [playlistId, dispatch]);
   
   return (
     <BodyContainer id='scrollbar'>
