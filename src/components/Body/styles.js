@@ -140,7 +140,7 @@ export const Songs = styled.div`
 
 export const Icons = styled.div`
     color: #fff;
-    margin-left: 80px;
+    margin-left: 20px;
 `
 
 export const SongRowContainer = styled.div`
@@ -153,9 +153,11 @@ export const SongRowContainer = styled.div`
 
     &:hover {
         cursor: pointer;
-        background-color: #000000;
+        background-color: rgba(128, 128, 128, 0.1);
         border-radius: 5px;
         opacity: 0.5;
+        /* width: 80%;
+        height: 60px; */
     }
     
     & img {
@@ -178,6 +180,12 @@ export const SongRowContainer = styled.div`
 export const SongInfo = styled.div`
 
 `
+
+export const SongInfoII = styled.div`
+    display: flex;
+    
+`
+
 export const StartPlaylist = styled.div`
     display: flex;
     gap: 10px;

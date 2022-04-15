@@ -12,6 +12,7 @@ const Body = () => {
 
   return (
     <BodyContainer id='scrollbar'>
+
       <Header/>
       <Info>
         <img src={playlist?.images[0]?.url} alt={playlist?.name} />
@@ -28,15 +29,15 @@ const Body = () => {
       </StartPlaylist>
 
       <Songs>
-        
         {
-          playlist?.tracks?.items?.map((song) => {
-            return <SongRow track={song?.track} key={song?.track?.id}/> 
+          playlist?.tracks?.items?.map((song, index) => {
+            return <SongRow track={song?.track} index={index} key={song?.track?.id}/> 
           })
         }
       </Songs>
+
     </BodyContainer>
-  )
+  );
 }
 
 export default Body

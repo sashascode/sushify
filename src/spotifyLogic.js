@@ -24,4 +24,6 @@ export const spotifyApi = new SpotifyWebApi({
 
 export const loginURL = `${endpoint}?client_id=${clientID}&response_type=code&redirect_uri=${redirectUri}&scope=${scopes.join('%20')}&show_dialog=true`;
 
+  
+
 
