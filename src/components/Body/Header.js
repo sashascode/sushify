@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { spotifyApi } from "../../spotifyLogic"
 import { HeaderContainer, HeaderLeft, HeaderRight } from "./styles"
 import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
 import { RiSearchLine } from 'react-icons/ri'
@@ -6,8 +7,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { selectUser, SET_USER } from "../../features/UserSlice"
 import { SET_TOKEN } from "../../features/TokenSlice"
 import { selectSearch, SET_SEARCH } from "../../features/SearchSlice"
-
-
+import { SET_SEARCH_RES } from "../../features/SearchResSlice"
 
 export const Header = () => {
   const user = useSelector(selectUser);
@@ -17,13 +17,25 @@ export const Header = () => {
 
   const handleOnClick = () => {
     setSelected(!selected);
-  }
+  };
 
   const handleLogout = () => {
     dispatch(SET_USER(null));
     dispatch(SET_TOKEN(null));
     localStorage.removeItem("token");
-  }
+  };
+
+  useEffect(() => {
+    let cancel = false;
+    if(!search) dispatch(SET_SEARCH_RES([]));
+    if(search && !cancel){
+      spotifyApi.searchTracks(search).then(res => {
+        dispatch(SET_SEARCH_RES(res.body.tracks.items));
+      });
+    };
+
+    return () => cancel = true;
+  }, [search, dispatch]);
 
   return (
     <HeaderContainer>
