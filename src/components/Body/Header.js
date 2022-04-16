@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react"
-import { spotifyApi } from "../../spotifyLogic"
-import { HeaderContainer, HeaderLeft, HeaderRight } from "./styles"
-import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti'
-import { RiSearchLine } from 'react-icons/ri'
-import { useSelector, useDispatch } from "react-redux"
-import { selectUser, SET_USER } from "../../features/UserSlice"
-import { selectSearch, SET_SEARCH } from "../../features/SearchSlice"
-import { SET_SEARCH_RES } from "../../features/SearchResSlice"
+import { useState, useEffect } from "react";
+import { spotifyApi } from "../../spotifyLogic";
+import { HeaderContainer, HeaderLeft, HeaderRight } from "./styles";
+import { TiArrowSortedDown, TiArrowSortedUp } from 'react-icons/ti';
+import { RiSearchLine } from 'react-icons/ri';
+import { useSelector, useDispatch } from "react-redux";
+import { selectUser, SET_USER } from "../../features/UserSlice";
+import { selectSearch, SET_SEARCH } from "../../features/SearchSlice";
+import { SET_SEARCH_RES } from "../../features/SearchResSlice";
 
 export const Header = () => {
   const user = useSelector(selectUser);

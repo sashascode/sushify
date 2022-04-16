@@ -1,4 +1,4 @@
-import { BodyContainer } from './styles'
+import { BodyContainer } from './styles';
 import { Header } from './Header';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
