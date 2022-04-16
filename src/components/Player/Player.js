@@ -3,12 +3,12 @@ import Sidebar from '../Sidebar/Sidebar'
 import Body from '../Body/Body'
 import Footer from '../Footer/Footer'
 
-const Player = () => {
+const Player = ({accesToken}) => {
   return (
     <>
     <SpotifyBody>
         <Sidebar/>
-        <Body/>
+        <Body accesToken={accesToken}/>
     </SpotifyBody>
     <Footer/>
     </>

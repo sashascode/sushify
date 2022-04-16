@@ -18,14 +18,14 @@ function App() {
       spotifyApi.setAccessToken(accesToken);
       spotifyApi.getMe().then(user => dispatch(SET_USER(user.body)));
     }
-  }, [accesToken, dispatch])
+  }, [accesToken, dispatch]);
   
   return (
     <div>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={accesToken ? <Player/> : <Login/>}/>
-          <Route path='/playlist/:playlistId' element={<Player/>}/>
+          <Route path='/playlist/:playlistId' element={<Player accesToken={accesToken}/>}/>
         </Routes>
       </BrowserRouter>
     </div>

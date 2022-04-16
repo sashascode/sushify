@@ -11,14 +11,20 @@ import { spotifyApi } from '../../spotifyLogic';
 import { useDispatch } from 'react-redux';
 import { SET_PLAYLIST } from '../../features/PlaylistSlice';
 
-const Body = () => {
+const Body = ({accesToken}) => {
   const playlist = useSelector(selectPlaylist);
   const [playActive, setPlayActive] = useState(false);
   const {playlistId} = useParams();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    spotifyApi.getPlaylist(playlistId).then(playlist => dispatch(SET_PLAYLIST(playlist.body)))
+    if(playlistId){
+    spotifyApi.setAccessToken(accesToken)
+    spotifyApi.getPlaylist(playlistId).then(playlist => dispatch(SET_PLAYLIST(playlist.body)));
+    return (() => {
+      SET_PLAYLIST();
+    });
+    }
   }, [playlistId, dispatch]);
   
   return (
