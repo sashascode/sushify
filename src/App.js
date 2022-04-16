@@ -7,6 +7,7 @@ import { spotifyApi } from './spotifyLogic';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { SET_USER } from './features/UserSlice'
+import { SET_ACCESS_TOKEN } from './features/AccessTokenSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ function App() {
   useEffect(() => {
     if(accesToken){
       spotifyApi.setAccessToken(accesToken);
+      dispatch(SET_ACCESS_TOKEN(accesToken));
       spotifyApi.getMe().then(user => dispatch(SET_USER(user.body)));
     }
   }, [accesToken, dispatch]);

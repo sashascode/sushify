@@ -197,3 +197,51 @@ export const StartPlaylist = styled.div`
     font-size: 55px;
 
 `
+
+//Home Page
+
+export const HomeContainer = styled.div`
+    color: #fff;
+    & h1 {
+        text-align: start;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+`
+
+export const CardContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    margin-bottom: 20px;
+`
+
+export const CardLarge = styled.div`
+    transition: all .5;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    background-color: #282828;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 10px;
+    color: #ffff;
+
+    & img {
+        width: 70px;
+        height: 70px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+        object-fit: cover;
+    }
+
+    & h4 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        font-size: 15px;
+        width: calc(100% - 80px);
+    }
+`

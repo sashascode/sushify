@@ -1,31 +1,21 @@
-import { useEffect } from 'react';
 import { SidebarContainer, PlaylistsContainer } from './styles';
 import { MdHomeFilled } from 'react-icons/md';
 import { RiSearchLine } from 'react-icons/ri';
 import { BiLibrary } from 'react-icons/bi';
 import { AiFillPlusSquare } from 'react-icons/ai';
 import SidebarChoice from './SidebarChoice';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectPlaylists, SET_PLAYLISTS } from '../../features/PlaylistsSlice';
-import { selectUser } from '../../features/UserSlice';
-import { spotifyApi } from '../../spotifyLogic';
+import { useSelector } from 'react-redux';
+import { selectPlaylists } from '../../features/PlaylistsSlice';
 import { Link, NavLink } from 'react-router-dom';
 
 const Sidebar = () => {
-  const dispatch = useDispatch();
   const playlists = useSelector(selectPlaylists);
-  const user = useSelector(selectUser);
-
-  useEffect(() => {
-    spotifyApi.getUserPlaylists(user?.id)
-    .then(res => dispatch(SET_PLAYLISTS(res.body.items)));
-  }, [user, dispatch]);
 
   return(
     <SidebarContainer>
       <img src="https://www.aldeanos.com/wp-content/uploads/2020/06/spotify-logo-branca-white.png" alt="Spotify Logo"/>
 
-      <NavLink to={'/'} activeStyle={{fontWeight: 'bold'}}>
+      <NavLink to={'/'} activestyle={{fontWeight: 'bold'}}>
         <SidebarChoice title='Home' Icon={MdHomeFilled}/>
       </NavLink>
 
@@ -44,9 +34,9 @@ const Sidebar = () => {
               <Link to={`/playlist/${playlist.id}`} key={playlist?.id}>
                 <SidebarChoice title={playlist?.name}/>
               </Link>
-            );
+            )
           })
-        };
+        }
       </PlaylistsContainer>
     </SidebarContainer>
   );

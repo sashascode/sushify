@@ -21,7 +21,6 @@ const SongRow = ({track, index}) => {
 	  return addZ(mins) + ':' + addZ(secs);
   };
 
-  console.log(track)
   if(!track?.track) return null;
 
   return (
