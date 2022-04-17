@@ -23,7 +23,7 @@ export const HeaderLeft = styled.div`
     background-color: #fff;
     color: #181818;
     border-radius: 30px;
-    padding: 10px;
+    padding: 20px;
 
     & input {
         border: none;
@@ -182,9 +182,6 @@ export const SongInfo = styled.div`
 
 export const SongInfoII = styled.div`
     display: flex;
-    
-
-    
 `
 
 export const StartPlaylist = styled.div`
@@ -212,14 +209,14 @@ export const HomeContainer = styled.div`
 
 export const CardContainer = styled.div`
     width: 100%;
-    display: flex;
-    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
     margin-bottom: 20px;
 `
 
 export const CardLarge = styled.div`
     transition: all .5;
-    width: 30%;
+    width: 0 auto;
     display: flex;
     justify-content: space-between;
     background-color: #282828;
@@ -241,7 +238,15 @@ export const CardLarge = styled.div`
         justify-content: space-between;
         align-items: center;
         padding: 0 20px;
-        font-size: 15px;
+        font-size: 14px;
         width: calc(100% - 80px);
+    }
+
+    & span {
+        font-size: 40px;
+        align-self: center;
+        margin-right: 15px;
+        color: #1db954;
+        
     }
 `

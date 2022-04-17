@@ -5,6 +5,7 @@ import searchReducer from '../features/SearchSlice';
 import searchResReducer from '../features/SearchResSlice';
 import playlistsReducer from '../features/PlaylistsSlice';
 import accesTokenReducer from '../features/AccessTokenSlice';
+import recommendationsReducer from '../features/RecommendationsSlice';
 
 export default configureStore({
     reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
         playlists: playlistsReducer,
         search: searchReducer,
         searchRes: searchResReducer,
+        recommendations: recommendationsReducer
     }
-})
+});

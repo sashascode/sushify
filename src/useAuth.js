@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function useAuth(code) {
   const [inLocalStorage, setLocalStorage] = useLocalStorage();
-  const [accessToken, setAccessToken] = useState(inLocalStorage('accesToken'));
+  const [accessToken, setAccessToken] = useState(inLocalStorage('accesToken') || null);
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
 

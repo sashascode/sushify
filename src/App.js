@@ -13,6 +13,7 @@ function App() {
   const dispatch = useDispatch();
   const code = new URLSearchParams(window.location.search).get('code');
   const accesToken = useAuth(code);
+  console.log(accesToken);
 
   useEffect(() => {
     if(accesToken){
