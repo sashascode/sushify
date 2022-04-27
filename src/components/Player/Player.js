@@ -19,17 +19,19 @@ const Player = ({accesToken}) => {
 
   useEffect(() => {
     if(playlistId && accesToken){
-    spotifyApi.setAccessToken(accesToken);
-    spotifyApi.getPlaylist(playlistId).then(playlist => dispatch(SET_PLAYLIST(playlist.body)));
-    return (() => {
-      SET_PLAYLIST();
-    });
-    }
+      spotifyApi.setAccessToken(accesToken);
+      spotifyApi.getPlaylist(playlistId).then(playlist => dispatch(SET_PLAYLIST(playlist.body)));
+      return (() => {
+        SET_PLAYLIST();
+      });
+    };
   }, [playlistId, dispatch, accesToken]);
 
   useEffect(() => {
-    spotifyApi.getUserPlaylists(user?.id)
-    .then(res => dispatch(SET_PLAYLISTS(res.body.items)));
+    if(user){
+      spotifyApi.getUserPlaylists(user?.id)
+      .then(res => dispatch(SET_PLAYLISTS(res.body.items)));
+    };
   }, [user, dispatch]);
 
   useEffect(() => {

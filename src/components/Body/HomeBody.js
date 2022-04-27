@@ -8,7 +8,7 @@ export const HomeBody = () => {
 
   return (
     <HomeContainer>
-        <h1>Buenos días</h1>
+        <h1>Good morning</h1>
         <CardContainer>
             {
                 recommendations?.recommendations?.map(track => 

@@ -8,6 +8,9 @@ export const BodyContainer = styled.div`
     overflow-y: overlay;
 
 `
+
+//Header
+
 export const HeaderContainer = styled.div`
     display: flex;
     justify-content: space-between;
