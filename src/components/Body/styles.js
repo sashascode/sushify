@@ -56,13 +56,17 @@ export const HeaderRight = styled.div`
     & div {
         display: flex;
         align-items: center;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0,0,0,0.7);
         gap: 10px;
         border-radius: 30px;
         width: 170px;
         height: 40px;
         justify-content: left;
         cursor: pointer;
+
+        &:hover {
+            background: rgba(0,0,0,0.5)  
+        }
     }
 
     & ul {
@@ -155,9 +159,8 @@ export const SongRowContainer = styled.div`
 
     &:hover {
         cursor: pointer;
-        background-color: rgba(128, 128, 128, 0.1);
+        background: rgba(40,40,40,0.5);
         border-radius: 5px;
-        opacity: 0.5;
         /* width: 80%;
         height: 60px; */
     }
@@ -174,9 +177,9 @@ export const SongRowContainer = styled.div`
     }
 
     & h6 {
-    font-size: 14px;
-    font-weight: 400;
-}
+        font-size: 14px;
+        font-weight: 400;
+    }
 `
 
 export const SongInfo = styled.div`
@@ -185,6 +188,7 @@ export const SongInfo = styled.div`
 
 export const SongInfoII = styled.div`
     display: flex;
+    gap: 20px;
 `
 
 export const StartPlaylist = styled.div`
@@ -222,11 +226,16 @@ export const CardLarge = styled.div`
     width: 0 auto;
     display: flex;
     justify-content: space-between;
-    background-color: #282828;
     cursor: pointer;
     border-radius: 5px;
     margin: 10px;
     color: #ffff;
+    background: rgba(40,40,40,0.5);
+    transition: 300ms ease-in;
+
+    &:hover {
+        background: rgba(40,40,40,1);
+    }
 
     & img {
         width: 70px;
@@ -250,6 +259,6 @@ export const CardLarge = styled.div`
         align-self: center;
         margin-right: 15px;
         color: #1db954;
-        
+        transition: 500ms ease-in;
     }
 `

@@ -14,10 +14,10 @@ export const PlaylistBody = () => {
         <Info>
             <img src={playlist?.images[0]?.url} alt={playlist?.name} />
             <InfoText>
-            <h6>PLAYLIST</h6>
-            <h1>{playlist?.name}</h1>
-            <p>{playlist?.description}</p>
-            <span>{playlist?.owner.display_name} &#8226; {playlist?.followers.total} me gusta &#8226; {playlist?.tracks.total} canciones </span>
+                <h6>PLAYLIST</h6>
+                <h1>{playlist?.name}</h1>
+                <p>{playlist?.description}</p>
+                <span>{playlist?.owner.display_name} &#8226; {playlist?.followers.total} me gusta &#8226; {playlist?.tracks.total} canciones </span>
             </InfoText>
         </Info>
 
