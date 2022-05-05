@@ -49,7 +49,7 @@ const Player = ({accesToken}) => {
     <>
     <SpotifyBody>
         <Sidebar/>
-        <Body accesToken={accesToken}/>
+        <Body/>
     </SpotifyBody>
     <Footer/>
     </>
